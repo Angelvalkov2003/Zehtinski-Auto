@@ -1,0 +1,233 @@
+body {
+    background-color: rgba(0, 0, 0, 0.897);
+    font-family: "Times New Roman", Times, serif;
+}
+
+h1, h2, h3, h4, h5, h6, p, small {
+    color: rgb(255, 255, 255);
+}
+
+a {
+    color: rgba(255, 255, 255, 0.507);
+}
+
+.info{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    padding-left: 2%;
+}
+.param{
+    padding: 4%;
+    padding-top: 10%;
+}
+.nav-bar{
+    display:grid;
+    grid-template-columns: 2fr 3fr 2fr;
+}
+
+.searchBar {
+    padding: 2%;
+    
+}
+
+.searchBar .search-icon {
+    position: absolute;
+    padding: 10px;
+    width: 20px;
+    color: rgb(96, 92, 92);
+}
+
+.searchBar input[type=text] {
+    width: 90%;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.537);
+    background-color:rgba(0, 0, 0, 0.251);
+    text-align: left;
+    color:aliceblue;
+    padding-left: 30px;
+}
+
+.loginDiv{
+    text-align: center; 
+}
+
+.home-container{
+    display:grid;
+    grid-template-columns: 1fr 10fr;
+
+}
+
+.brands{
+    border-right:  1mm solid rgba(255, 255, 255, 0.568);
+
+}
+
+.stocks{
+    
+    padding: 30px;
+    padding-left: 50px;
+}
+.information{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+.map-info{
+    padding: 3%;
+}
+.text-info{
+    padding: 8%;
+    margin: 13%;
+}
+.home-img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+.intro{
+    position: absolute;
+    left: 35%;
+    top:40%;
+    background-color: rgba(0, 0, 0, 0.897);
+    width: 30%;
+    text-align: center;
+    border: 4mm ridge rgba(147, 145, 145, 0.6);
+    border-radius: 30px;
+}
+.intro-car{
+    position: absolute;
+    left: 36.5%;
+    top:57%;
+    background-color: rgba(0, 0, 0, 0.897);
+    width: 8%;
+    text-align: center;
+    border: 2mm ridge rgba(147, 145, 145, 0.6);
+    border-radius: 30px;
+}
+.intro-part{
+    position: absolute;
+    left: 46.5%;
+    top:57%;
+    background-color: rgba(0, 0, 0, 0.897);
+    width: 8%;
+    text-align: center;
+    border: 2mm ridge rgba(147, 145, 145, 0.6);
+    border-radius: 30px;
+}
+.intro-info{
+    position: absolute;
+    left: 56.5%;
+    top:57%;
+    background-color: rgba(0, 0, 0, 0.897);
+    width: 8%;
+    text-align: center;
+    border: 2mm ridge rgba(147, 145, 145, 0.6);
+    border-radius: 30px;
+}
+.nav-links{
+    font-weight: bold;
+}
+.car-form{
+    margin: auto;
+    width: 30%;
+    border: 10px solid rgb(112, 112, 112);
+    padding: 10px;
+    text-align: left;
+    color: azure;
+    
+}
+.car-form input{
+    border: none;
+    background-color: rgba(0, 0, 0, 0.251);
+    padding-right: 100px;
+    margin-right: 100%;
+    width: 80%;
+    color:azure;
+}
+.car-form textarea{
+    border: none;
+    background-color: rgba(0, 0, 0, 0.251);
+    padding-right: 30px;
+    margin-right: 100%;
+    width: 95%;
+    color:azure;
+}
+.car-form input[type='file']{
+    color:rgb(255, 255, 255);
+    font-size:10px;
+    
+}
+.car-form button{
+    color:rgb(255, 255, 255);
+    font-size:10px;
+}
+.submit-car{
+    height: 50px;
+    text-align: center;
+    border: 10px solid rgb(112, 112, 112);
+    background-color: rgba(0, 0, 0, 0.793);
+}
+.submit-car-button{
+    color:rgb(255, 255, 255);
+    font-size: 200%;
+    padding-left: 35%;
+    padding-top: 2%;
+    width: 80%;
+    font-weight: bolder;
+}
+.buy-car-button{
+    background-color: rgba(0, 0, 0, 0.793);
+    border: 5px solid rgb(112, 112, 112);
+    color: azure;
+    padding: 2% 4%;
+    text-align: center;
+    display: inline-block;
+    font-size: 260%;
+    cursor: pointer;
+}
+.intro input{
+    border: none;
+    background-color: rgba(0, 0, 0, 0.251);
+    width: 100%;
+    color:azure;
+}
+.login{
+    position: absolute;
+    left: 35%;
+    top:40%;
+    background-color: rgba(0, 0, 0, 0.897);
+    color: azure;
+    width: 30%;
+    text-align: center;
+    border: 4mm ridge rgba(147, 145, 145, 0.6);
+    border-radius: 30px;
+}
+.login input[type=submit]{
+    border: 3px solid rgb(112, 112, 112);
+    background-color: rgba(0, 0, 0, 0.251);
+    width: 30%;
+    color:azure;
+}
+.register{
+    position: absolute;
+    left: 35%;
+    top:40%;
+    color:azure;
+    background-color: rgba(0, 0, 0, 0.897);
+    width: 30%;
+    text-align: center;
+    border: 4mm ridge rgba(147, 145, 145, 0.6);
+    border-radius: 30px;
+}
+.register input[type=submit]{
+    border: 3px solid rgb(112, 112, 112);
+    background-color: rgba(0, 0, 0, 0.251);
+    width: 30%;
+    color:azure;
+}
+.logo-img{
+    display: block;
+    margin-left: 0%;
+    margin-right: auto;
+    width: 70%;
+}

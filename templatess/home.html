@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div>
+    <div>
+        <img src="http://localhost:8000/files/images/home.jpg" class="home-img" />
+    </div>
+    <div class="intro">
+        <h1>Welcome to Zehtinski Auto</h1>
+        <h3>Best for your vehicle</h3>
+    </div>
+    <a href="{% url 'shop' %}"><h3 class="intro-car">Cars</h3></a>
+    <a href="{% url 'shopparts' %}"><h3 class="intro-part">Parts</h3></a>
+    <a href="{% url 'information' %}"><h3 class="intro-info">Information</h3></a>
+</div>
+
+{% endblock %}

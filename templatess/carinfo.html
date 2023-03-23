@@ -1,0 +1,48 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<form method="POST" action="">
+    {% csrf_token %}
+    <div class="car-container">
+        <div class="info">
+            <div>
+                <h1>{{car.title}}</h1>
+                <h2>{{car.brand}}</h2>
+                <img style="max-width: 700px;" src="http://localhost:8000/{{car.picture}}"/>
+            </div>
+            <div class="param">
+                <h2>Parameters of the car:</h2><br>
+                <h3>horsepower: {{car.horsepower}}hp</h3>
+                <h3>gear: {{car.gear}}</h3>
+                <h3>fuel: {{car.fuel}}</h3>
+                <h3>price: {{car.price}} <i class="fa fa-dollar"> </i></h3>
+                <h3>manufactured: {{car.manufactured}}</h3>
+                <p>description: {{car.description}}</p><br>
+                <button type="button" class="buy-car-button" onclick="window.location.href='http://localhost:8000/buyCar/{{car.id}}';">Buy</button>
+            </div>
+            
+        </div>
+        <div class="comment-wrapper">
+            <h3> <i class="fa fa-comment-o"> </i> Comments:</h3>
+            <hr>
+            {% for comment in car_comments %}
+            <div>
+                {% if request.user == comment.user %}
+                    <a href="{% url 'delete-comment' comment.id%}">Delete</a>
+                {% endif %}
+                <small>{{comment.user}}    {{comment.created|timesince}} ago </small>
+                <p>{{comment.body}}</p>
+                <hr>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="comment-form">
+            <div class="searchBar">
+                <h3>Your comment:</h3>
+                <input type="text" name="body" placeholder="Write your comment here..."/>
+            </div>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

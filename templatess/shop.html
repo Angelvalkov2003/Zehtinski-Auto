@@ -1,0 +1,49 @@
+{% extends 'main.html' %}
+
+{% block content %}
+{% load static %}
+<style>
+    
+</style>
+<div class="home-container">
+
+    <div class="brands">
+        <h3>Browse brands</h3>
+        <hr>
+        <div>
+            <a href="{% url 'shop' %}">All</a>
+        </div><br>
+
+        {% for brand in brands %}
+        <div>
+            <a href="{% url 'shop' %}?q={{brand.name}}">{{brand.name}}</a>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="stocks">
+        <h2>You can chose between {{car_count}} available <i class="fa fa-car"></i></h2>
+        <a href="{% url 'add-car' %}">Add car</a><hr>
+    
+        {% for car in cars %}
+            <div>
+                {% if user.is_superuser %}
+                    <a href="{% url 'update-car' car.id %}">Update</a>
+                    <a href="{% url 'delete-car' car.id %}">Delete</a>
+                {% endif %}
+                <br/>
+                <a href="{% url 'carinfo' car.id %}">
+                    <small>{{car.brand.name}}</small>
+                    <br/>
+                    <img style="max-width: 400px;" src="http://localhost:8000/{{car.picture}}"/>
+                    <br/>
+                    <h2>{{car.title}}</h2>
+                </a>
+                <hr>
+            </div>
+        {% endfor %}
+    </div>
+    
+</div>
+
+{% endblock content %}

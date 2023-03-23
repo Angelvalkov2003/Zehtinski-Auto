@@ -1,0 +1,37 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="stocks">
+
+   <div>
+     <h1>Your car orders:</h1>
+     {% for ordersCar in ordersCars %}
+     <div>
+          <a href="{% url 'carinfo' ordersCar.car.id %}">
+               <h2>{{ordersCar.car.title}}</h5>
+               <img style="max-width: 400px;" src="http://localhost:8000/{{ordersCar.car.picture}}"/><br>
+          </a>
+         <small>The order is made: {{ordersCar.created|timesince}} ago </small>
+         <hr><br>
+     </div>
+     {% endfor %}
+   </div>
+
+
+   <div>
+     <h1>Your part orders:</h1>
+     {% for ordersPart in ordersParts %}
+     <div>
+          <a href="{% url 'partinfo' ordersPart.part.id %}">
+               <h2>{{ordersPart.part.title}}</h2>
+               <img style="max-width: 400px;" src="http://localhost:8000/{{ordersPart.part.picture}}"/><br>
+          </a>
+          <small>The order is made: {{ordersPart.created|timesince}} ago </small>
+         <hr><br>
+     </div>
+     {% endfor %}
+   </div>
+
+</div>
+{% endblock content %}

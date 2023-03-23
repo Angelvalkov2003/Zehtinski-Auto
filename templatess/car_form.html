@@ -1,0 +1,66 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <form method="POST" action="" class="form" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="car-form">
+            <div>
+                <label for="car_brand"> Brand: </label>
+                <input required name="brand" type="text" list="brand-list"/>
+                <datalist id="brand-list">
+                    <select id="car_brand">
+                        {% for brand in brands %}
+                            <option value="{{brand.name}}">{{brand.name}}</option>
+                        {% endfor %}
+                    </select>
+                </datalist>
+            </div>
+
+            <div>
+                <label for="car_title">Title:</label>
+                    {{form.title}}
+            </div>
+
+            <div>
+                <label for="car_horsepower">Horsepower:</label>
+                {{form.horsepower}} 
+            </div>
+
+            <div>
+                <label for="car_gear">Gear:</label>
+                {{form.gear}} 
+            </div>
+
+            <div>
+                <label for="car_fuel">Fuel:</label>
+                {{form.fuel}} 
+            </div>
+
+            <div>
+                <label for="car_price">Price:</label>
+                {{form.price}}
+            </div>
+
+
+            <div>
+                <label for="car_picture">Picture:</label>
+                {{form.picture}} 
+            </div>
+
+
+            <div>
+                <label for="car_manufactured">Manufactured:</label>
+                {{form.manufactured}} 
+            </div>
+
+            <div>
+                <label for=" car_description">Description:</label>
+                {{form.description}}
+            </div><br>
+            
+            <div class="submit-car">
+                <input class="submit-car-button" type="submit" value="Submit" />
+            </div>
+        </div>
+    </form>
+{% endblock content %}

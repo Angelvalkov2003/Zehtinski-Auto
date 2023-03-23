@@ -1,0 +1,47 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<form method="POST" action="">
+    {% csrf_token %} 
+    <div class="part-container">
+        <div class="info">
+            <div>
+                <h1>{{part.title}}</h1>
+                <h2>for: {{part.brand}}</h2>
+                <img style="max-width: 700px;" src="http://localhost:8000/{{part.picture}}"/>
+            </div>
+            <div class="param">
+                <h3>price: {{part.price}} <i class="fa fa-dollar"> </i></h3>
+                <p>description: {{part.description}}</p>
+                <button type="button" class="buy-car-button" onclick="window.location.href='http://localhost:8000/buyPart/{{part.id}}';">Buy</button>
+            </div>
+        </div>
+        <div>
+            <div class="comment-wrapper">
+                <h3><i class="fa fa-comment-o"></i> Comments:</h3>
+                <hr>
+                {% for comment in part_comments %}
+                <div>
+                    {% if request.user == comment.user %}
+                        <a href="{% url 'delete-comment' comment.id%}">Delete</a>
+                    {% endif %}
+                    <small>{{comment.user}}    {{comment.created|timesince}} ago </small>
+                    <p>{{comment.body}}</p>
+                    <hr>
+                </div>
+                {% endfor %}
+            </div>
+
+            {% if request.user.is_authenticated %}
+            <div class="comment-form">
+                <div class="searchBar">
+                    <h3>Your comment:</h3>
+                    <input type="text" name="body" placeholder="Write your comment here..."/>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</form>
+
+{% endblock %}

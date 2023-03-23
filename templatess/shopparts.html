@@ -1,0 +1,45 @@
+{% extends 'main.html' %}
+
+{% block content %}
+{% load static %}
+
+<div class="home-container">
+
+    <div class="brands">
+        <h3>Browse brands</h3>
+        <hr>
+        <div>
+            <a href="{% url 'shopparts' %}">All</a>
+        </div><br>
+
+        {% for brand in brands %}
+        <div>
+            <a href="{% url 'shopparts' %}?q={{brand.name}}">{{brand.name}}</a>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="stocks">
+        <h2>You can chose between {{part_count}} available <i class="fa fa-gears"></i></h2>
+        <a href="{% url 'add-part' %}">Add part</a><hr>
+    
+        {% for part in parts %}
+            
+                {% if user.is_superuser %}
+                    <a href="{% url 'update-part' part.id %}">Update</a>
+                    <a href="{% url 'delete-part' part.id %}">Delete</a>
+                {% endif %}
+                <br/>
+                <a href="{% url 'partinfo' part.id %}">
+                    <small>{{part.brand.name}}</small>
+                    <br/>
+                    <img style="max-width: 400px;" src="http://localhost:8000/{{part.picture}}"/>
+                    <h2>{{part.title}}</h2>
+                </a>
+                <hr>
+        {% endfor %}
+    </div>
+    
+</div>
+
+{% endblock content %}

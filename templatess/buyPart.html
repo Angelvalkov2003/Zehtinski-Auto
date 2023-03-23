@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<form method="POST" action="">
+    {% csrf_token %}
+    <div class="intro">
+        <h4>phone: <input type="text" name="phoneNumber" placeholder="Write your phone number..."/></h4>
+        <h4>email: <input type="text" name="email" placeholder="Write your email..."/></h4>
+        <p>Are you sure you want to buy "{{obj}}"?</p>
+        
+        <input type="submit" value="Confirm" />
+        <a href="{{request.META.HTTP_REFERER}}">Go back</a>
+    </div>
+</form>
+
+{% endblock content %}

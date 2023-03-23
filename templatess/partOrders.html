@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="stocks">
+    <h1>Car orders:</h1><br>
+    {% for ordersPart in ordersParts %}
+        <div>
+            <a href="{% url 'delete-part' ordersPart.part.id %}">Delete</a>
+            <br/>
+            <a href="{% url 'partinfo' ordersPart.part.id %}">
+            <img style="max-width: 400px;" src="http://localhost:8000/{{ordersPart.part.picture}}"/>
+            <h5>{{ordersPart.part.title}}</h5>
+            </a>
+            <small>username of the customer: {{ordersPart.customer.username}}    {{ordersPart.created|timesince}} ago </small>
+            <br>
+            <small>phone number: {{ordersPart.phoneNumber}} and email: {{ordersPart.email}}</small>
+            <hr><br>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

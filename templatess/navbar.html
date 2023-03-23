@@ -1,0 +1,51 @@
+<style>
+    
+
+</style>
+<div class="nav-bar">
+    <div class="nav-menu">
+
+        <a href="/">
+            <img src="http://localhost:8000/files/images/logo.jpg" class="logo-img">
+        </a>
+
+        <div class="nav-links">
+            {% if request.path != '/shop/' %}
+                <a href="{% url 'shop' %}">Shop cars</a>
+            {% endif %}
+
+            {% if request.path != '/shopparts/' %}
+                <a href="{% url 'shopparts' %}">Shop parts</a>
+            {% endif %}
+
+            {% if request.path != '/information' %}
+                <a href="{% url 'information' %}">Information</a>
+            {% endif %}
+            
+            {% if user.is_superuser %}
+                <a href="{% url 'carOrders' %}">Car orders</a>
+
+                <a href="{% url 'partOrders' %}">Part orders</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="searchBar">
+        <form method="GET" action="{% url 'shop' %}" >
+            <i class="search-icon fa fa-search"></i><input type="text" name="q" placeholder="Search Cars... " class="searchBar"/>
+        </form>
+        <br>
+        <form method="GET" action="{% url 'shopparts' %}" >
+            <i class="search-icon fa fa-search"></i><input type="text" name="q" placeholder="Search Parts... " class="searchBar"/>
+        </form>
+    </div>
+    <div class="loginDiv">
+        {% if request.user.is_authenticated%}
+            <h1>Hello, <a href="{% url 'user-profile' request.user.id %}"><i class="fa fa-id-card"> </i> {{request.user}}</a></h1>
+            <h2><a href="{% url 'logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></h2>
+        {% else %}
+            <a href="{% url 'login' %}"><i class="fa fa-sign-in fa-4x" aria-hidden="true"></i><h1>Login</h1></a>
+        {% endif %}
+        
+    </div>
+</div>
+<hr>

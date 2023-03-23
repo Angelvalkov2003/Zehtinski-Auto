@@ -1,0 +1,48 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="car-form">
+    <form method="POST" action="" class="form" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <div>
+            <label for="part_brand">Brand:</label>
+            <input required name="brand" type="text" list="brand-list"/>
+            <datalist id="brand-list">
+                <select id="part_brand">
+                    {% for brand in brands %}
+                        <option value="{{brand.name}}">{{brand.name}}</option>
+                    {% endfor %}
+                </select>
+            </datalist>
+        </div>
+
+        <div>
+            <label for="part_title">Title:</label>
+            {{form.title}} 
+        </div>
+
+        <div>
+            <label for="part_price">Price:</label>
+            {{form.price}} 
+        </div>
+
+
+        <div>
+            <label for="part_picture">Picture:</label>
+            {{form.picture}} 
+        </div>
+
+        <div>
+            <label for="part_description">Description:</label>
+            {{form.description}}
+        </div>
+        
+        <div class="submit-car">
+            <input class="submit-car-button" type="submit" value="Submit" />
+        </div>
+        
+    </form>
+</div>
+{% endblock content %}

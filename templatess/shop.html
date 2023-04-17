@@ -23,7 +23,9 @@
 
     <div class="stocks">
         <h2>You can chose between {{car_count}} available <i class="fa fa-car"></i></h2>
-        <a href="{% url 'add-car' %}">Add car</a><hr>
+        {% if user.is_superuser %}
+            <a href="{% url 'add-car' %}">Add car</a><hr>
+        {% endif %}
     
         {% for car in cars %}
             <div>

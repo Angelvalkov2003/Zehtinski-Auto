@@ -21,7 +21,9 @@
 
     <div class="stocks">
         <h2>You can chose between {{part_count}} available <i class="fa fa-gears"></i></h2>
-        <a href="{% url 'add-part' %}">Add part</a><hr>
+        {% if user.is_superuser %}
+            <a href="{% url 'add-part' %}">Add part</a><hr>
+        {% endif %}
     
         {% for part in parts %}
             
